@@ -1,0 +1,52 @@
+.section {
+  text-align: center;
+  padding: 20px;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.text {
+  margin: 0;
+  font-size: 20px;
+  color: rgb(255, 94, 0);
+}
+
+.link {
+  display: flex;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+}
+.item {
+  list-style: none;
+}
+
+/* .decor {
+  font-weight: 900;
+  color: rgb(255, 42, 0);
+} */
+
+.card {
+  margin-left: 10px;
+  text-align: left;
+}
+
+.button {
+  width: 120px;
+  height: 40px;
+  margin: 10px;
+  font-size: 18px;
+  color: rgb(255, 42, 0);
+  background-color: transparent;
+  border-color: rgb(255, 42, 0);
+  border-radius: 8px;
+}
+
+.button:hover {
+  color: #fff;
+  background-color: rgb(255, 42, 0);
+}

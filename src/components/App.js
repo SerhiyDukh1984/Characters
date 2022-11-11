@@ -1,10 +1,11 @@
 import { React, lazy, Suspense } from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
+import Home from '../pages/Home';
 const Container = lazy(() => import('./Container/Container'));
 const Navigation = lazy(() => import('./Navigation/Navigation'));
-const Home = lazy(() => import('../pages/Home'));
+const Characters = lazy(() => import('../pages/Characters'));
 const Movies = lazy(() => import('../pages/Movies'));
-const MovieDetails = lazy(() => import('../pages/MovieDetails'));
+const Location = lazy(() => import('../pages/Location'));
 
 export default function App() {
   return (
@@ -12,10 +13,11 @@ export default function App() {
       <Navigation />
       <Suspense fallback={<h2>Loading...</h2>}>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/movies" element={<Movies />} />
-          <Route path="/movies/:movieId/*" element={<MovieDetails />} />
-          <Route path="*" element={<Navigate to="/" />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/characters" element={<Characters />} />
+          <Route path="/episodes" element={<Movies />} />
+          <Route path="/locations" element={<Location />} />
+          <Route path="*" element={<Navigate to="/home" />} />
         </Routes>
       </Suspense>
     </Container>

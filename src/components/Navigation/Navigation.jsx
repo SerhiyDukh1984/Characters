@@ -10,11 +10,17 @@ const Navigation = ({ children }) => {
   return (
     <>
       <nav className={s.nav}>
-        <NavLink to="/" className={s.link} style={setLinkStyle}>
+        <NavLink to="/home" className={s.link} style={setLinkStyle}>
           Home
         </NavLink>
-        <NavLink to="/movies" className={s.link} style={setLinkStyle}>
-          Movies
+        <NavLink to="/characters" className={s.link} style={setLinkStyle}>
+          Characters
+        </NavLink>
+        <NavLink to="/locations" className={s.link} style={setLinkStyle}>
+          Locations
+        </NavLink>
+        <NavLink to="/episodes" className={s.link} style={setLinkStyle}>
+          Episodes
         </NavLink>
       </nav>
       {children}

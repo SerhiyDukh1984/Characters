@@ -1,21 +1,20 @@
-import { useEffect, useState } from 'react';
-import { getTrendMovies } from 'Api/Api';
-import MovieList from '../components/MovieList/MovieList.jsx';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import LocationList from '../components/Location/LocationList';
+import s from './Home.module.css';
 
 const Home = () => {
-  const [films, setFilms] = useState([]);
-
-  useEffect(() => {
-    getTrendMovies()
-      .then(response => {
-        setFilms(response.data.results);
-      })
-      .catch(error => console.log('error'));
-  }, []);
+  // useEffect(() => {
+  //   getLocations()
+  //     .then(response => {
+  //       setlocations(response.data.ressults);
+  //     })
+  //     .catch(err => console.log(err));
+  // }, []);
 
   return (
     <>
-      <MovieList title={'Trending today'} films={films} />
+      <h1 className={s.title}>---Hello world---</h1>
     </>
   );
 };

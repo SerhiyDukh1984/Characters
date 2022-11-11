@@ -1,0 +1,43 @@
+.section {
+  text-align: center;
+}
+
+.button {
+  width: 120px;
+  height: 40px;
+  margin: 10px;
+  font-size: 18px;
+  color: rgb(255, 42, 0);
+  background-color: transparent;
+  border-color: rgb(255, 42, 0);
+  border-radius: 8px;
+}
+
+.button:hover {
+  color: #fff;
+  background-color: rgb(255, 42, 0);
+}
+
+.list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  list-style: none;
+  text-decoration: none;
+}
+
+.text {
+  margin: 0;
+  font-size: 20px;
+  color: rgb(255, 94, 0);
+  text-decoration: none;
+}
+
+.title {
+  text-decoration: none;
+  color: blue;
+}
+
+.item {
+  text-align: left;
+}
