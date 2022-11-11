@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/700.acc8e7be.chunk.css","mappings":"AAAA,4BACE,YACF","sources":["components/Container/Container.module.css"],"sourcesContent":[".container {\n  width: 100 vw;\n}\n"],"names":[],"sourceRoot":""}
