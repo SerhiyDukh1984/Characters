@@ -10,7 +10,7 @@ const Navigation = ({ children }) => {
   return (
     <>
       <nav className={s.nav}>
-        <NavLink to="/home" className={s.link} style={setLinkStyle}>
+        <NavLink to="/" className={s.link} style={setLinkStyle}>
           Home
         </NavLink>
         <NavLink to="/characters" className={s.link} style={setLinkStyle}>
@@ -23,7 +23,6 @@ const Navigation = ({ children }) => {
           Episodes
         </NavLink>
       </nav>
-      {children}
     </>
   );
 };

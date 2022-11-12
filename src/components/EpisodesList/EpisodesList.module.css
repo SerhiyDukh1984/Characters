@@ -1,0 +1,27 @@
+.section {
+  text-align: center;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  list-style: none;
+  text-decoration: none;
+}
+
+.text {
+  margin: 0;
+  font-size: 20px;
+  color: rgb(255, 94, 0);
+  text-decoration: none;
+}
+
+.title {
+  text-decoration: none;
+  color: blue;
+}
+
+.item {
+  text-align: left;
+}

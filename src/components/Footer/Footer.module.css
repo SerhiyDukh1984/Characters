@@ -1,0 +1,16 @@
+.section {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 20px 40px;
+  border-top: 2px solid rgb(255, 77, 0);
+}
+
+.text {
+  margin: 0;
+  color: blue;
+}
+
+.link {
+  color: blue;
+}

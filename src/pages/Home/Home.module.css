@@ -1,0 +1,14 @@
+.section {
+  text-align: center;
+}
+
+.title {
+  margin: 0 auto;
+  font-size: 180px;
+  color: blue;
+}
+
+.text {
+  font-size: 90px;
+  color: red;
+}

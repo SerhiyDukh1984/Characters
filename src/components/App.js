@@ -1,11 +1,16 @@
+// import Author from 'components/Author/Author';
 import { React, lazy, Suspense } from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
-import Home from '../pages/Home';
+import CharacterDetails from './CharacterDetails/CharacterDetails';
+
 const Container = lazy(() => import('./Container/Container'));
 const Navigation = lazy(() => import('./Navigation/Navigation'));
 const Characters = lazy(() => import('../pages/Characters'));
-const Movies = lazy(() => import('../pages/Movies'));
+const Episodes = lazy(() => import('../pages/Episodes'));
 const Location = lazy(() => import('../pages/Location'));
+const Home = lazy(() => import('../pages/Home/Home'));
+const Author = lazy(() => import('../components/Author/Author'));
+const CharacterInfo = lazy(() => import('../pages/CharacterInfo'));
 
 export default function App() {
   return (
@@ -13,11 +18,16 @@ export default function App() {
       <Navigation />
       <Suspense fallback={<h2>Loading...</h2>}>
         <Routes>
-          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/characters" element={<Characters />} />
-          <Route path="/episodes" element={<Movies />} />
+          <Route
+            path="/characters/:characterId"
+            element={<CharacterDetails />}
+          />
+          <Route path="/episodes" element={<Episodes />} />
           <Route path="/locations" element={<Location />} />
-          <Route path="*" element={<Navigate to="/home" />} />
+          <Route path="/author" element={<Author />} />
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Suspense>
     </Container>

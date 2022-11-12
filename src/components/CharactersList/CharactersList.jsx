@@ -1,55 +1,49 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate, useParams } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import { getCharacters } from 'Api/Api';
-import s from './MovieList.module.css';
+import { getCharactersById } from 'Api/Api';
+import s from './CharacterList.module.css';
+import Footer from 'components/Footer/Footer';
+import CharacterDetails from 'components/CharacterDetails/CharacterDetails';
 
-const CharactersList = () => {
+const CharactersList = ({ characters }) => {
+  const navigate = useNavigate();
   const location = useLocation();
-  const [characters, setcharacters] = useState([]);
-  const [nextPage, setNextPage] = useState('');
-  const [prevPage, setPrevPage] = useState('');
+  const [character, setCharacter] = useState({});
+  console.log('🚀 ~ character', character);
+  const [characterId, setCharacterId] = useState('');
+  const qwe = character.id;
 
-  useEffect(() => {
-    getCharacters()
-      .then(response => {
-        setcharacters(response.data.results);
-        setNextPage(response.data.info.next);
-      })
-      .catch(error => console.log('error'));
-  }, []);
+  // const getInfo = () => {
+  //   // navigate(`/characters/${qwe}`);
+  //   // getCharactersById(id)
+  //   //   .then(response => response.data.results)
+  //   //   .catch(error => console.log('error'));
+  // };
 
-  const handleClickMore = e => {
-    e.preventDefault();
-
-    getCharacters(nextPage)
-      .then(response => {
-        setcharacters(response.data.results);
-        setNextPage(response.data.info.next);
-        setPrevPage(response.data.info.prev);
-      })
-      .catch(error => console.log('error'));
-  };
-
-  const handleClickBack = e => {
-    e.preventDefault();
-
-    getCharacters(prevPage)
-      .then(response => {
-        setcharacters(response.data.results);
-        setNextPage(response.data.info.next);
-        setPrevPage(response.data.info.prev);
-      })
-      .catch(error => console.log('error'));
-  };
+  // useEffect(() => {
+  //   // getInfo();
+  //   // getCharactersById(characterId);
+  //   // setCharacterId(characterId);
+  //   // navigate(`/characters/${qwe}`);
+  // }, [qwe]);
 
   return (
     <section className={s.section}>
       <ul className={s.list}>
         {characters !== undefined &&
           characters.map(character => (
-            <li key={character.id} className={s.item}>
-              <Link to={'/characters'} state={location} className={s.link}>
+            <li
+              onClick={() => {
+                // getInfo(character.id);
+                setCharacter(character);
+                // setCharacterId(character.id);
+              }}
+              key={character.id}
+              className={s.item}
+            >
+              <Link to={`/characters`} state={location} className={s.link}>
                 <img src={character.image} width="120" h="120" />
                 <div className={s.card}>
                   <h1 className={s.text}>
@@ -58,21 +52,13 @@ const CharactersList = () => {
                   </h1>
                   <p>{character.status}</p>
                   <p>{character.species}</p>
+                  <p>{character.id}</p>
                 </div>
               </Link>
             </li>
           ))}
       </ul>
-      {prevPage && (
-        <button type="button" className={s.button} onClick={handleClickBack}>
-          Go back
-        </button>
-      )}
-      {nextPage && (
-        <button type="button" className={s.button} onClick={handleClickMore}>
-          Load more
-        </button>
-      )}
+      <CharacterDetails qwe={qwe} />
     </section>
   );
 };

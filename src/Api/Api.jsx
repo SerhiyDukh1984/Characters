@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 const BASE_URL = 'https://rickandmortyapi.com/api/character';
 const LOCATIONS_URL = 'https://rickandmortyapi.com/api/location';
+const EPISODES_URL = 'https://rickandmortyapi.com/api/episode';
 
 export const getCharacters = e => {
   try {
@@ -29,45 +30,31 @@ export const getLocations = e => {
   }
 };
 
-// export const getLocations = query => {
-//   return axios('https://rickandmortyapi.com/api/location', {
-//     // params: {
-//     //   query: query,
-//     // },
-//   });
-// };
+export const getEpisodes = e => {
+  try {
+    const response = axios.get(e === undefined ? EPISODES_URL : e);
+    if (response.data === {}) {
+      throw new Error('error');
+    }
+    return response;
+  } catch (error) {
+    throw error;
+  }
+};
 
-// export const getMovieInfo = id => {
-//   try {
-//     const response = axios.get(`${BASE_URL}/movie/${id}?api_key=${KEY}`);
-//     if (response.results === {}) {
-//       throw new Error('error');
-//     }
-
-//     return response;
-//   } catch (error) {
-//     throw error;
-//   }
-// };
-
-// export const getCredits = id => {
-//   try {
-//     const response = axios.get(`${BASE_URL}movie/${id}/credits?api_key=${KEY}`);
-
-//     return response;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-
-// export const getReviews = id => {
-//   try {
-//     const response = axios.get(`${BASE_URL}movie/${id}/reviews?api_key=${KEY}`);
-//     return response;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
+export const getCharactersById = id => {
+  try {
+    const response = axios.get(
+      `https://rickandmortyapi.com/api/character/${id}`
+    );
+    if (response.data === {}) {
+      throw new Error('error');
+    }
+    return response;
+  } catch (error) {
+    throw error;
+  }
+};
 
 // getMoviesBySearch.propTypes = PropTypes.string.isRequired;
 // getMovieInfo.propTypes = PropTypes.number.isRequired;
