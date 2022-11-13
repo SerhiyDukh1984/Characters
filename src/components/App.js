@@ -2,7 +2,7 @@
 import { React, lazy, Suspense } from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
 import CharacterDetails from './CharacterDetails/CharacterDetails';
-import EpisodeDetails from './EpisodeDetails';
+import EpisodeDetails from './EpisodeDetails/EpisodeDetails';
 import LocationDetails from './LocationDetails/LocationDetails';
 
 const Container = lazy(() => import('./Container/Container'));

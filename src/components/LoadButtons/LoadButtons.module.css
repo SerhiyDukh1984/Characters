@@ -8,6 +8,7 @@
   height: 40px;
   margin: 10px;
   font-size: 18px;
+  font-weight: bold;
   color: rgb(255, 42, 0);
   background-color: transparent;
   border-color: rgb(255, 42, 0);
@@ -15,7 +16,7 @@
 }
 
 .button:hover {
-  color: #fff;
+  color: blue;
   background-color: rgb(255, 42, 0);
 }
 

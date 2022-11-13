@@ -1,11 +1,12 @@
 import { getLocationById } from 'Api/Api';
+import BtnGoBack from 'components/ButtonGoBack/ButtonGoBack';
 import { useEffect, useState } from 'react';
-import { Link, useLocation, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 const LocationDetails = () => {
-  const location = useLocation();
   const { locationId } = useParams();
   const [locations, setLocations] = useState({});
+  let id = locationId;
 
   useEffect(() => {
     if (locationId) {
@@ -17,9 +18,7 @@ const LocationDetails = () => {
 
   return (
     <>
-      <Link to={location.state ?? '/locations'}>
-        <button>Go Back</button>
-      </Link>
+      <BtnGoBack id={id} />
       {locations !== {} && (
         <section>
           <h1>{locations.name}</h1>

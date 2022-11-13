@@ -1,11 +1,14 @@
 import { getCharactersById } from 'Api/Api';
+import BtnGoBack from 'components/ButtonGoBack/ButtonGoBack';
 import { useEffect, useState } from 'react';
-import { Link, useLocation, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+
+import s from './CharacterDetails.module.css';
 
 const CharacterDetails = () => {
-  const location = useLocation();
   const { characterId } = useParams();
   const [character, setCharacter] = useState({});
+  let id = characterId;
 
   useEffect(() => {
     if (characterId) {
@@ -17,13 +20,11 @@ const CharacterDetails = () => {
 
   return (
     <>
-      <Link to={location.state ?? '/characters/'}>
-        <button>Go Back</button>
-      </Link>
+      <BtnGoBack id={id} />
       {character !== {} && (
         <section>
           <img src={character.image} alt="user" />
-          <h1>{character.name}</h1>
+          <h1 className={s.title}>{character.name}</h1>
           <ul>
             <li>Spesies: {character.species}</li>
             <li>Gender: {character.gender}</li>

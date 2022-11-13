@@ -25,7 +25,7 @@ const CharactersList = ({ characters }) => {
             className={s.item}
           >
             <div className={s.card}>
-              <img src={character.image} alt="user" width="120" h="120" />
+              <img src={character.image} alt="user" className={s.image} />
 
               <h1 className={s.title}>{character.name}</h1>
             </div>

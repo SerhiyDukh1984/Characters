@@ -54,7 +54,7 @@ const LoadButtons = ({
   const handleClickBack = e => {
     e.preventDefault();
 
-    if (location.pathname === '/characters') {
+    if (location.pathname === '/characters/') {
       getCharacters(prevPage)
         .then(response => {
           setNewCharacters(response.data.results);
@@ -63,7 +63,7 @@ const LoadButtons = ({
           setNumberOfPage(numberOfPage - 1);
         })
         .catch(error => console.log('error'));
-    } else if (location.pathname === '/locations') {
+    } else if (location.pathname === '/locations/') {
       getLocations(prevPage)
         .then(response => {
           setNewLocations(response.data.results);

@@ -1,11 +1,12 @@
 import { getEpisodeById } from 'Api/Api';
+import BtnGoBack from 'components/ButtonGoBack/ButtonGoBack';
 import { useEffect, useState } from 'react';
-import { Link, useLocation, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 const EpisodeDetails = () => {
-  const location = useLocation();
   const { episodeId } = useParams();
   const [episode, setEpisode] = useState({});
+  let id = episodeId;
 
   useEffect(() => {
     if (episodeId) {
@@ -17,9 +18,7 @@ const EpisodeDetails = () => {
 
   return (
     <>
-      <Link to={location.state ?? '/episodes'}>
-        <button>Go Back</button>
-      </Link>
+      <BtnGoBack id={id} />
       {episode !== {} && (
         <section>
           <h1>{episode.name}</h1>

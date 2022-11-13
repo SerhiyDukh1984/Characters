@@ -7,7 +7,7 @@ const Author = () => {
         <img
           src="https://www.printsalon.ua/images/products/view/nakleyka-ehali-kazaki.jpg"
           alt="author"
-          width="300"
+          className={s.image}
         />
 
         <div className={s.info}>

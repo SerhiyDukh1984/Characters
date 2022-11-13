@@ -5,7 +5,9 @@ const Footer = () => {
   return (
     <section className={s.section}>
       <p className={s.text}>© All rights reserved, 2022</p>
-      <Link to={'/author'}>Author</Link>
+      <Link to={'/author'} className={s.link}>
+        Author
+      </Link>
     </section>
   );
 };

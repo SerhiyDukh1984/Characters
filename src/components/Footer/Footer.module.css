@@ -12,5 +12,10 @@
 }
 
 .link {
+  font-weight: 700;
   color: blue;
+}
+
+.link:hover {
+  color: rgb(255, 77, 0);
 }
