@@ -6,7 +6,7 @@ const Author = () => {
       <div className={s.author}>
         <img
           src="https://www.printsalon.ua/images/products/view/nakleyka-ehali-kazaki.jpg"
-          alt="photo"
+          alt="author"
           width="300"
         />
 
