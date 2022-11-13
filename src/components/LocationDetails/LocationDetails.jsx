@@ -7,20 +7,21 @@ import s from './LocationDetails.module.css';
 const LocationDetails = () => {
   const { locationId } = useParams();
   const [locations, setLocations] = useState({});
+  const [error, setError] = useState(null);
   let id = locationId;
 
   useEffect(() => {
     if (locationId) {
       getLocationById(locationId)
         .then(response => setLocations(response.data))
-        .catch(error => console.log('error'));
+        .catch(error => setError(error.message));
     }
   }, [locationId]);
 
   return (
     <>
       <BtnGoBack id={id} />
-      {locations !== {} && (
+      {locations !== {} && error === null ? (
         <section className={s.section}>
           <h1 className={s.title}>{locations.name}</h1>
           <ul className={s.list}>
@@ -42,6 +43,8 @@ const LocationDetails = () => {
             </li>
           </ul>
         </section>
+      ) : (
+        <>{error}</>
       )}
     </>
   );

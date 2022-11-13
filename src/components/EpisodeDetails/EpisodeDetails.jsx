@@ -7,20 +7,21 @@ import s from './EpisodeDetails.module.css';
 const EpisodeDetails = () => {
   const { episodeId } = useParams();
   const [episode, setEpisode] = useState({});
+  const [error, setError] = useState(null);
   let id = episodeId;
 
   useEffect(() => {
     if (episodeId) {
       getEpisodeById(episodeId)
         .then(response => setEpisode(response.data))
-        .catch(error => console.log('error'));
+        .catch(error => setError(error.message));
     }
   }, [episodeId]);
 
   return (
     <>
       <BtnGoBack id={id} />
-      {episode !== {} && (
+      {episode !== {} && error === null ? (
         <section className={s.section}>
           <h1 className={s.title}>{episode.name}</h1>
           <ul className={s.list}>
@@ -42,6 +43,8 @@ const EpisodeDetails = () => {
             </li>
           </ul>
         </section>
+      ) : (
+        <>{error}</>
       )}
     </>
   );
