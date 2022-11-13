@@ -2,6 +2,8 @@
 import { React, lazy, Suspense } from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
 import CharacterDetails from './CharacterDetails/CharacterDetails';
+import EpisodeDetails from './EpisodeDetails';
+import LocationDetails from './LocationDetails/LocationDetails';
 
 const Container = lazy(() => import('./Container/Container'));
 const Navigation = lazy(() => import('./Navigation/Navigation'));
@@ -10,7 +12,6 @@ const Episodes = lazy(() => import('../pages/Episodes'));
 const Location = lazy(() => import('../pages/Location'));
 const Home = lazy(() => import('../pages/Home/Home'));
 const Author = lazy(() => import('../components/Author/Author'));
-const CharacterInfo = lazy(() => import('../pages/CharacterInfo'));
 
 export default function App() {
   return (
@@ -25,7 +26,9 @@ export default function App() {
             element={<CharacterDetails />}
           />
           <Route path="/episodes" element={<Episodes />} />
+          <Route path="/episodes/:episodeId" element={<EpisodeDetails />} />
           <Route path="/locations" element={<Location />} />
+          <Route path="/locations/:locationId" element={<LocationDetails />} />
           <Route path="/author" element={<Author />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>

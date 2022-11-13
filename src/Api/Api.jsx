@@ -1,5 +1,4 @@
 import axios from 'axios';
-import PropTypes from 'prop-types';
 
 const BASE_URL = 'https://rickandmortyapi.com/api/character';
 const LOCATIONS_URL = 'https://rickandmortyapi.com/api/location';
@@ -8,7 +7,7 @@ const EPISODES_URL = 'https://rickandmortyapi.com/api/episode';
 export const getCharacters = e => {
   try {
     const response = axios.get(e === undefined ? BASE_URL : e);
-    if (response.results === {}) {
+    if (response.data === {}) {
       throw new Error('error');
     }
 
@@ -56,7 +55,26 @@ export const getCharactersById = id => {
   }
 };
 
-// getMoviesBySearch.propTypes = PropTypes.string.isRequired;
-// getMovieInfo.propTypes = PropTypes.number.isRequired;
-// getCredits.propTypes = PropTypes.number.isRequired;
-// getReviews.propTypes = PropTypes.number.isRequired;
+export const getEpisodeById = id => {
+  try {
+    const response = axios.get(`https:rickandmortyapi.com/api/episode/${id}`);
+    if (response.data === {}) {
+      throw new Error('error');
+    }
+    return response;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const getLocationById = id => {
+  try {
+    const response = axios.get(`https:rickandmortyapi.com/api/location/${id}`);
+    if (response.data === {}) {
+      throw new Error('error');
+    }
+    return response;
+  } catch (error) {
+    throw error;
+  }
+};

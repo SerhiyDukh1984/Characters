@@ -1,39 +1,34 @@
-import { Link } from 'react-router-dom';
-import { useLocation } from 'react-router-dom';
-import { getLocations } from 'Api/Api';
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import s from './LocationList.module.css';
 
 const LocationList = ({ locations }) => {
-  const location = useLocation();
+  const navigate = useNavigate();
+  // eslint-disable-next-line
+  const [locatione, setLocatione] = useState({});
+  const [locationId, setLocationId] = useState('');
+
+  useEffect(() => {
+    navigate(`/locations/${locationId}`);
+  }, [locationId, navigate]);
 
   return (
     <section className={s.section}>
       <ul className={s.list}>
         {locations !== undefined &&
           locations.map(loc => (
-            <li key={loc.id} className={s.item}>
-              <Link to={'/locations'} state={location}>
-                <div>
-                  <h1 className={s.title}>{loc.name}</h1>
-                  <p className={s.text}>Dimension: {loc.dimension}</p>
-                  <p className={s.text}>Type: {loc.type}</p>
-                  <p className={s.text}>Residents: {loc.residents.length}</p>
-                </div>
-              </Link>
+            <li
+              onClick={() => {
+                setLocatione(locatione);
+                setLocationId(loc.id);
+              }}
+              key={loc.id}
+              className={s.item}
+            >
+              <h1 className={s.title}>{loc.name}</h1>
             </li>
           ))}
       </ul>
-      {/* {prevPage && (
-        <button type="button" className={s.button} onClick={handleClickBack}>
-          Go back
-        </button>
-      )}
-      {nextPage && (
-        <button type="button" className={s.button} onClick={handleClickMore}>
-          Load more
-        </button>
-      )} */}
     </section>
   );
 };

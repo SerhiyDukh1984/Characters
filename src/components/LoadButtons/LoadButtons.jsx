@@ -1,6 +1,5 @@
 import { getCharacters, getEpisodes, getLocations } from 'Api/Api';
-import { useEffect } from 'react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import s from './LoadButtons.module.css';
 
@@ -12,7 +11,7 @@ const LoadButtons = ({
 }) => {
   const location = useLocation();
   const [nextPage, setNextPage] = useState(newPage);
-  const [prevPage, setPrevPage] = useState('');
+  const [prevPage, setPrevPage] = useState(null);
   const [numberOfPage, setNumberOfPage] = useState(1);
 
   useEffect(() => {
@@ -22,7 +21,7 @@ const LoadButtons = ({
   const handleClickMore = e => {
     e.preventDefault();
 
-    if (location.pathname === '/characters') {
+    if (location.pathname === '/characters/') {
       getCharacters(nextPage)
         .then(response => {
           setNewCharacters(response.data.results);
@@ -31,7 +30,7 @@ const LoadButtons = ({
           setNumberOfPage(numberOfPage + 1);
         })
         .catch(error => console.log('error'));
-    } else if (location.pathname === '/locations') {
+    } else if (location.pathname === '/locations/') {
       getLocations(nextPage)
         .then(response => {
           setNewLocations(response.data.results);

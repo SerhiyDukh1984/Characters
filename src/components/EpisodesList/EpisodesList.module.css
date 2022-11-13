@@ -20,6 +20,11 @@
 .title {
   text-decoration: none;
   color: blue;
+  cursor: pointer;
+}
+
+.title:hover {
+  color: rgb(255, 94, 0);
 }
 
 .item {

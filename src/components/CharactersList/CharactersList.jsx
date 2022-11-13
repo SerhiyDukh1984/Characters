@@ -1,64 +1,37 @@
 import { useEffect, useState } from 'react';
-import { Link, Navigate, useNavigate, useParams } from 'react-router-dom';
-import { useLocation } from 'react-router-dom';
-import { getCharacters } from 'Api/Api';
-import { getCharactersById } from 'Api/Api';
+import { useNavigate } from 'react-router-dom';
 import s from './CharacterList.module.css';
-import Footer from 'components/Footer/Footer';
-import CharacterDetails from 'components/CharacterDetails/CharacterDetails';
 
 const CharactersList = ({ characters }) => {
   const navigate = useNavigate();
-  const location = useLocation();
+  // eslint-disable-next-line
   const [character, setCharacter] = useState({});
-  console.log('🚀 ~ character', character);
   const [characterId, setCharacterId] = useState('');
-  const qwe = character.id;
 
-  // const getInfo = () => {
-  //   // navigate(`/characters/${qwe}`);
-  //   // getCharactersById(id)
-  //   //   .then(response => response.data.results)
-  //   //   .catch(error => console.log('error'));
-  // };
-
-  // useEffect(() => {
-  //   // getInfo();
-  //   // getCharactersById(characterId);
-  //   // setCharacterId(characterId);
-  //   // navigate(`/characters/${qwe}`);
-  // }, [qwe]);
+  useEffect(() => {
+    navigate(`/characters/${characterId}`);
+  }, [characterId, navigate]);
 
   return (
     <section className={s.section}>
       <ul className={s.list}>
-        {characters !== undefined &&
-          characters.map(character => (
-            <li
-              onClick={() => {
-                // getInfo(character.id);
-                setCharacter(character);
-                // setCharacterId(character.id);
-              }}
-              key={character.id}
-              className={s.item}
-            >
-              <Link to={`/characters`} state={location} className={s.link}>
-                <img src={character.image} width="120" h="120" />
-                <div className={s.card}>
-                  <h1 className={s.text}>
-                    <span className={s.decor}>- </span>
-                    {character.name}
-                  </h1>
-                  <p>{character.status}</p>
-                  <p>{character.species}</p>
-                  <p>{character.id}</p>
-                </div>
-              </Link>
-            </li>
-          ))}
+        {characters.map(character => (
+          <li
+            onClick={() => {
+              setCharacter(character);
+              setCharacterId(character.id);
+            }}
+            key={character.id}
+            className={s.item}
+          >
+            <div className={s.card}>
+              <img src={character.image} alt="user" width="120" h="120" />
+
+              <h1 className={s.title}>{character.name}</h1>
+            </div>
+          </li>
+        ))}
       </ul>
-      <CharacterDetails qwe={qwe} />
     </section>
   );
 };

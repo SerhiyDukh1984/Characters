@@ -1,7 +1,4 @@
 import Footer from 'components/Footer/Footer';
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import LocationList from '../../components/Location/LocationList';
 import s from './Home.module.css';
 
 const Home = () => {

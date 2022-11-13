@@ -1,40 +1,37 @@
 import { getCharactersById } from 'Api/Api';
 import { useEffect, useState } from 'react';
-import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 
-const CharacterDetails = ({ qwe }) => {
-  const navigate = useNavigate();
-  console.log('🚀 ~ qwe', qwe);
-  const [a, setA] = useState({});
-
-  const getInfo = () => {
-    navigate(`/characters/${qwe}`);
-    getCharactersById(qwe)
-      .then(response => response.data.results)
-      .catch(error => console.log('error'));
-  };
+const CharacterDetails = () => {
+  const location = useLocation();
+  const { characterId } = useParams();
+  const [character, setCharacter] = useState({});
 
   useEffect(() => {
-    getInfo();
-  }, [qwe]);
+    if (characterId) {
+      getCharactersById(characterId)
+        .then(response => setCharacter(response.data))
+        .catch(error => console.log('error'));
+    }
+  }, [characterId]);
 
   return (
     <>
-      <h1>hello</h1>
-      {/* {!character && (
+      <Link to={location.state ?? '/characters/'}>
+        <button>Go Back</button>
+      </Link>
+      {character !== {} && (
         <section>
-          <img src={character.image} />
+          <img src={character.image} alt="user" />
           <h1>{character.name}</h1>
           <ul>
-            <li>Location: {character.location.name}</li>
             <li>Spesies: {character.species}</li>
             <li>Gender: {character.gender}</li>
             <li>Status: {character.status}</li>
-            <li>Episodes: {character.episode.length}</li>
             <li>Created: {character.created}</li>
           </ul>
         </section>
-      )} */}
+      )}
     </>
   );
 };
