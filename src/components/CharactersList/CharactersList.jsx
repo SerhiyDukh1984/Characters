@@ -43,6 +43,7 @@ const CharactersList = () => {
   return (
     <>
       <BtnGoBack keys={keys} goBack={goBack} />
+
       <Filter setFilteredCharacters={setFilteredCharacters} />
       <section className={s.section}>
         {keys.length !== 0 && (

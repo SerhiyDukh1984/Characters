@@ -35,7 +35,7 @@ const BtnGoBack = ({ id, keys, goBack }) => {
   return (
     <>
       <button type="button" className={s.button} onClick={handleClick}>
-        Go Back
+        {id ? 'Go Start' : 'Go Back'}
       </button>
     </>
   );
