@@ -13,14 +13,15 @@ const CharacterDetails = () => {
     if (characterId) {
       getCharactersById(characterId)
         .then(response => setCharacter(response.data))
-        .catch(error => console.log('error'));
+        .catch(error => console.log(error.message));
     }
   }, [characterId]);
 
   return (
     <>
       <BtnGoBack id={id} />
-      {character !== {} && (
+
+      {character && (
         <section className={s.section}>
           <img src={character.image} alt="user" className={s.image} />
           <h1 className={s.title}>{character.name}</h1>

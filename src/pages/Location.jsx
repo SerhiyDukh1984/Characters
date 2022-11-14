@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getLocations } from 'Api/Api';
 import LoadButtons from 'components/LoadButtons/LoadButtons';
-import LocationList from '../components/Location/LocationList';
+import LocationList from '../components/LocationList/LocationList';
 import Footer from 'components/Footer/Footer';
 
 const Locations = () => {
@@ -14,7 +14,7 @@ const Locations = () => {
         setLocations(response.data.results);
         setpage(response.data.info.next);
       })
-      .catch(error => console.log('error'));
+      .catch(error => console.log(error.message));
   }, []);
 
   const setNewLocations = e => {

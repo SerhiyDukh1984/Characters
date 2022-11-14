@@ -76,3 +76,16 @@ export const getLocationById = id => {
     throw error;
   }
 };
+
+export const getFilteredCharacters = (name, status) => {
+  try {
+    const response = axios.get(BASE_URL + `?name=${name}&status=${status}`);
+    if (response.data === {}) {
+      throw new Error('error');
+    }
+
+    return response;
+  } catch (error) {
+    throw error;
+  }
+};

@@ -6,7 +6,7 @@ const setLinkStyle = ({ isActive }) =>
     ? { color: 'rgb(255, 77, 0)', borderBottom: '4px solid rgb(255, 77, 0)' }
     : { color: 'blue' };
 
-const Navigation = ({ children }) => {
+const Navigation = e => {
   return (
     <>
       <nav className={s.nav}>

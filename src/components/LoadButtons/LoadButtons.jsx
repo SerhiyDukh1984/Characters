@@ -29,7 +29,7 @@ const LoadButtons = ({
           setPrevPage(response.data.info.prev);
           setNumberOfPage(numberOfPage + 1);
         })
-        .catch(error => console.log('error'));
+        .catch(error => console.log(error.message));
     } else if (location.pathname === '/locations/') {
       getLocations(nextPage)
         .then(response => {
@@ -38,7 +38,7 @@ const LoadButtons = ({
           setPrevPage(response.data.info.prev);
           setNumberOfPage(numberOfPage + 1);
         })
-        .catch(error => console.log('error'));
+        .catch(error => console.log(error.message));
     } else {
       getEpisodes(nextPage)
         .then(response => {
@@ -47,7 +47,7 @@ const LoadButtons = ({
           setPrevPage(response.data.info.prev);
           setNumberOfPage(numberOfPage + 1);
         })
-        .catch(error => console.log('error'));
+        .catch(error => console.log(error.message));
     }
   };
 
@@ -62,7 +62,7 @@ const LoadButtons = ({
           setPrevPage(response.data.info.prev);
           setNumberOfPage(numberOfPage - 1);
         })
-        .catch(error => console.log('error'));
+        .catch(error => console.log(error.message));
     } else if (location.pathname === '/locations/') {
       getLocations(prevPage)
         .then(response => {
@@ -71,7 +71,7 @@ const LoadButtons = ({
           setPrevPage(response.data.info.prev);
           setNumberOfPage(numberOfPage - 1);
         })
-        .catch(error => console.log('error'));
+        .catch(error => console.log(error.message));
     } else {
       getEpisodes(prevPage)
         .then(response => {
@@ -80,7 +80,7 @@ const LoadButtons = ({
           setPrevPage(response.data.info.prev);
           setNumberOfPage(numberOfPage - 1);
         })
-        .catch(error => console.log('error'));
+        .catch(error => console.log(error.message));
     }
   };
 

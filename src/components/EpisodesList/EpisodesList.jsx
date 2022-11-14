@@ -4,8 +4,6 @@ import s from './EpisodesList.module.css';
 
 const EpisodesList = ({ episodes }) => {
   const navigate = useNavigate();
-  // eslint-disable-next-line
-  const [episode, setEpisode] = useState({});
   const [episodeId, setEpisodeId] = useState('');
 
   useEffect(() => {
@@ -19,7 +17,6 @@ const EpisodesList = ({ episodes }) => {
           episodes.map(episode => (
             <li
               onClick={() => {
-                setEpisode(episode);
                 setEpisodeId(episode.id);
               }}
               key={episode.id}

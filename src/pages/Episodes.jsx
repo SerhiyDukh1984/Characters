@@ -14,7 +14,7 @@ const Episodes = () => {
         setEpisodes(response.data.results);
         setpage(response.data.info.next);
       })
-      .catch(error => console.log('error'));
+      .catch(error => console.log(error.message));
   }, []);
 
   const setNewEpisodes = e => {

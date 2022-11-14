@@ -4,7 +4,6 @@ import s from './LocationList.module.css';
 
 const LocationList = ({ locations }) => {
   const navigate = useNavigate();
-  // eslint-disable-next-line
   const [locatione, setLocatione] = useState({});
   const [locationId, setLocationId] = useState('');
 
