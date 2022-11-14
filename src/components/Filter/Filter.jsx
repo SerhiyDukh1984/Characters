@@ -39,9 +39,9 @@ const Filter = ({ setFilteredCharacters }) => {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        Search:
-        <label>
+      <form className={s.form} onSubmit={handleSubmit}>
+        <span>Search: </span>
+        <label className={s.label}>
           <input
             className={s.input}
             type="text"
@@ -50,7 +50,7 @@ const Filter = ({ setFilteredCharacters }) => {
             onChange={handleChange}
           ></input>
         </label>
-        <label>
+        <label className={s.label}>
           <input
             className={s.input}
             type="text"
@@ -59,7 +59,9 @@ const Filter = ({ setFilteredCharacters }) => {
             onChange={handleChange}
           ></input>
         </label>
-        <button type="submit">Send</button>
+        <button className={s.button} type="submit">
+          Send
+        </button>
       </form>
     </>
   );

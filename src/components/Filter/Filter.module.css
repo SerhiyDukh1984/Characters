@@ -1,0 +1,32 @@
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(255, 42, 0);
+}
+
+.input {
+  height: 25px;
+  margin: 10px;
+  color: rgb(255, 42, 0);
+  background-color: rgb(30, 29, 29);
+  border: none;
+  border-bottom: 2px solid rgb(255, 42, 0);
+  outline: none;
+}
+
+.button {
+  width: 100px;
+  height: 35px;
+  font-size: 18px;
+  /* font-weight: bold; */
+  color: rgb(255, 42, 0);
+  background-color: transparent;
+  border-color: rgb(255, 42, 0);
+  border-radius: 8px;
+}
+
+.button:hover {
+  color: blue;
+  background-color: rgb(255, 42, 0);
+}

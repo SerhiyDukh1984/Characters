@@ -18,7 +18,7 @@ const BtnGoBack = ({ id, keys, goBack }) => {
       setNav('/characters');
     }
 
-    if (location.pathname === '/characters/' && keys.length < 20) {
+    if (location.pathname === '/characters/') {
       goBack(Date.now());
     }
 
