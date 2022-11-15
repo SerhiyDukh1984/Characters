@@ -1,8 +1,15 @@
 .form {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   color: rgb(255, 42, 0);
+}
+
+@media screen and (min-width: 768px) {
+  .form {
+    flex-direction: row;
+  }
 }
 
 .input {
