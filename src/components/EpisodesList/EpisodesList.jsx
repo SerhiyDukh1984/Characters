@@ -1,4 +1,3 @@
-import Footer from 'components/Footer/Footer';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import s from './EpisodesList.module.css';

@@ -22,9 +22,13 @@ const Locations = () => {
   };
   return (
     <>
-      <LocationList locations={locations} />
-      <LoadButtons setNewLocations={setNewLocations} newPage={page} />
-      <Footer />
+      {locations.length !== 0 && (
+        <>
+          <LocationList locations={locations} />
+          <LoadButtons setNewLocations={setNewLocations} newPage={page} />
+          <Footer />
+        </>
+      )}
     </>
   );
 };

@@ -1,7 +1,6 @@
 import { getCharacters } from 'Api/Api';
 import BtnGoBack from 'components/ButtonGoBack/ButtonGoBack';
 import Filter from 'components/Filter/Filter';
-import Footer from 'components/Footer/Footer';
 import LoadButtons from 'components/LoadButtons/LoadButtons';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';

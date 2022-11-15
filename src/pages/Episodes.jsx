@@ -23,9 +23,13 @@ const Episodes = () => {
 
   return (
     <>
-      <EpisodesList episodes={episodes} />
-      <LoadButtons setNewEpisodes={setNewEpisodes} newPage={page} />
-      <Footer />
+      {episodes.length !== 0 && (
+        <>
+          <EpisodesList episodes={episodes} />
+          <LoadButtons setNewEpisodes={setNewEpisodes} newPage={page} />
+          <Footer />
+        </>
+      )}
     </>
   );
 };
