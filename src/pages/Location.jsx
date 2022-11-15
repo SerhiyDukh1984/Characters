@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { getLocations } from 'Api/Api';
 import LoadButtons from 'components/LoadButtons/LoadButtons';
 import LocationList from '../components/LocationList/LocationList';
+import Footer from 'components/Footer/Footer';
 
 const Locations = () => {
   const [locations, setLocations] = useState([]);
@@ -23,6 +24,7 @@ const Locations = () => {
     <>
       <LocationList locations={locations} />
       <LoadButtons setNewLocations={setNewLocations} newPage={page} />
+      <Footer />
     </>
   );
 };

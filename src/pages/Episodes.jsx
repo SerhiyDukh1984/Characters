@@ -2,6 +2,7 @@ import { getEpisodes } from 'Api/Api';
 import { useEffect, useState } from 'react';
 import EpisodesList from 'components/EpisodesList/EpisodesList';
 import LoadButtons from 'components/LoadButtons/LoadButtons';
+import Footer from 'components/Footer/Footer';
 
 const Episodes = () => {
   const [episodes, setEpisodes] = useState([]);
@@ -24,6 +25,7 @@ const Episodes = () => {
     <>
       <EpisodesList episodes={episodes} />
       <LoadButtons setNewEpisodes={setNewEpisodes} newPage={page} />
+      <Footer />
     </>
   );
 };

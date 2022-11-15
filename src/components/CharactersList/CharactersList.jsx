@@ -70,7 +70,6 @@ const CharactersList = () => {
           {keys.length >= 20 && (
             <LoadButtons setNewCharacters={setNewCharacters} newPage={page} />
           )}
-          <Footer />
         </section>
       )}
     </>

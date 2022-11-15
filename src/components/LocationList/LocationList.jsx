@@ -16,23 +16,24 @@ const LocationList = ({ locations }) => {
   return (
     <>
       {locations.length !== 0 && (
-        <section className={s.section}>
-          <ul className={s.list}>
-            {locations.map(loc => (
-              <li
-                onClick={() => {
-                  setLocatione(locatione);
-                  setLocationId(loc.id);
-                }}
-                key={loc.id}
-                className={s.item}
-              >
-                <h1 className={s.title}>{loc.name}</h1>
-              </li>
-            ))}
-          </ul>
-          <Footer />
-        </section>
+        <>
+          <section className={s.section}>
+            <ul className={s.list}>
+              {locations.map(loc => (
+                <li
+                  onClick={() => {
+                    setLocatione(locatione);
+                    setLocationId(loc.id);
+                  }}
+                  key={loc.id}
+                  className={s.item}
+                >
+                  <h1 className={s.title}>{loc.name}</h1>
+                </li>
+              ))}
+            </ul>
+          </section>
+        </>
       )}
     </>
   );

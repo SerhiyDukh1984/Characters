@@ -29,7 +29,6 @@ const EpisodesList = ({ episodes }) => {
                 </li>
               ))}
           </ul>
-          <Footer />
         </section>
       )}
     </>
