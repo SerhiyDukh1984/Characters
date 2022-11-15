@@ -4,9 +4,9 @@ const BASE_URL = 'https://rickandmortyapi.com/api/character/';
 const LOCATIONS_URL = 'https://rickandmortyapi.com/api/location/';
 const EPISODES_URL = 'https://rickandmortyapi.com/api/episode/';
 
-export const getCharacters = e => {
+export const getCharacters = async e => {
   try {
-    const response = axios.get(e === undefined ? BASE_URL : e);
+    const response = await axios.get(e === undefined ? BASE_URL : e);
     if (response.data === {}) {
       throw new Error('error');
     }
@@ -17,9 +17,9 @@ export const getCharacters = e => {
   }
 };
 
-export const getLocations = e => {
+export const getLocations = async e => {
   try {
-    const response = axios.get(e === undefined ? LOCATIONS_URL : e);
+    const response = await axios.get(e === undefined ? LOCATIONS_URL : e);
     if (response.data === {}) {
       throw new Error('error');
     }
@@ -29,9 +29,9 @@ export const getLocations = e => {
   }
 };
 
-export const getEpisodes = e => {
+export const getEpisodes = async e => {
   try {
-    const response = axios.get(e === undefined ? EPISODES_URL : e);
+    const response = await axios.get(e === undefined ? EPISODES_URL : e);
     if (response.data === {}) {
       throw new Error('error');
     }
@@ -41,9 +41,9 @@ export const getEpisodes = e => {
   }
 };
 
-export const getCharactersById = id => {
+export const getCharactersById = async id => {
   try {
-    const response = axios.get(BASE_URL + `${id}`);
+    const response = await axios.get(BASE_URL + `${id}`);
     if (response.data === {}) {
       throw new Error('error');
     }
@@ -53,9 +53,9 @@ export const getCharactersById = id => {
   }
 };
 
-export const getEpisodeById = id => {
+export const getEpisodeById = async id => {
   try {
-    const response = axios.get(EPISODES_URL + `${id}`);
+    const response = await axios.get(EPISODES_URL + `${id}`);
     if (response.data === {}) {
       throw new Error('error');
     }
@@ -65,9 +65,9 @@ export const getEpisodeById = id => {
   }
 };
 
-export const getLocationById = id => {
+export const getLocationById = async id => {
   try {
-    const response = axios.get(LOCATIONS_URL + `${id}`);
+    const response = await axios.get(LOCATIONS_URL + `${id}`);
     if (response.data === {}) {
       throw new Error('error');
     }
@@ -77,9 +77,11 @@ export const getLocationById = id => {
   }
 };
 
-export const getFilteredCharacters = (name, status) => {
+export const getFilteredCharacters = async (name, status) => {
   try {
-    const response = axios.get(BASE_URL + `?name=${name}&status=${status}`);
+    const response = await axios.get(
+      BASE_URL + `?name=${name}&status=${status}`
+    );
     if (response.data === {}) {
       throw new Error('error');
     }

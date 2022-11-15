@@ -24,7 +24,7 @@ const Locations = () => {
     <>
       <LocationList locations={locations} />
       <LoadButtons setNewLocations={setNewLocations} newPage={page} />
-      <Footer />
+      
     </>
   );
 };

@@ -25,7 +25,6 @@ const Episodes = () => {
     <>
       <EpisodesList episodes={episodes} />
       <LoadButtons setNewEpisodes={setNewEpisodes} newPage={page} />
-      <Footer />
     </>
   );
 };

@@ -5,7 +5,6 @@ const Characters = () => {
   return (
     <>
       <CharactersList />
-      <Footer />
     </>
   );
 };

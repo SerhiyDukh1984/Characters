@@ -6,14 +6,14 @@ import s from './LocationDetails.module.css';
 
 const LocationDetails = () => {
   const { locationId } = useParams();
-  const [locations, setLocations] = useState({});
+  const [location, setLocation] = useState({});
   const [error, setError] = useState(null);
   let id = locationId;
 
   useEffect(() => {
     if (locationId) {
       getLocationById(locationId)
-        .then(response => setLocations(response.data))
+        .then(response => setLocation(response.data))
         .catch(error => setError(error.message));
     }
   }, [locationId]);
@@ -21,25 +21,25 @@ const LocationDetails = () => {
   return (
     <>
       <BtnGoBack id={id} />
-      {locations !== {} && error === null ? (
+      {location.name && error === null ? (
         <section className={s.section}>
-          <h1 className={s.title}>{locations.name}</h1>
+          <h1 className={s.title}>{location.name}</h1>
           <ul className={s.list}>
             <li className={s.item}>
               <span>Id: </span>
-              {locations.id}
+              {location.id}
             </li>
             <li className={s.item}>
               <span>Type: </span>
-              {locations.type}
+              {location.type}
             </li>
             <li className={s.item}>
               <span>Dimension: </span>
-              {locations.dimension}
+              {location.dimension}
             </li>
             <li className={s.item}>
               <span>Created: </span>
-              {locations.created}
+              {location.created}
             </li>
           </ul>
         </section>

@@ -60,7 +60,7 @@ const Filter = ({ setFilteredCharacters }) => {
           ></input>
         </label>
         <button className={s.button} type="submit">
-          Send
+          Find
         </button>
       </form>
     </>

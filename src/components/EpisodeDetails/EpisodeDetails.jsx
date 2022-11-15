@@ -21,7 +21,7 @@ const EpisodeDetails = () => {
   return (
     <>
       <BtnGoBack id={id} />
-      {episode !== {} && error === null ? (
+      {episode.name && error === null ? (
         <section className={s.section}>
           <h1 className={s.title}>{episode.name}</h1>
           <ul className={s.list}>

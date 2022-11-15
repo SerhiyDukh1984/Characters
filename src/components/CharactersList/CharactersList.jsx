@@ -1,6 +1,7 @@
 import { getCharacters } from 'Api/Api';
 import BtnGoBack from 'components/ButtonGoBack/ButtonGoBack';
 import Filter from 'components/Filter/Filter';
+import Footer from 'components/Footer/Footer';
 import LoadButtons from 'components/LoadButtons/LoadButtons';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -42,33 +43,35 @@ const CharactersList = () => {
 
   return (
     <>
-      <BtnGoBack keys={keys} goBack={goBack} />
+      <BtnGoBack goBack={goBack} />
 
       <Filter setFilteredCharacters={setFilteredCharacters} />
-      <section className={s.section}>
-        {keys.length !== 0 && (
-          <ul className={s.list}>
-            {characters.map(character => (
-              <li
-                onClick={() => {
-                  // setCharacter(character);
-                  setCharacterId(character.id);
-                }}
-                key={character.id}
-                className={s.item}
-              >
-                <div className={s.card}>
-                  <img src={character.image} alt="user" className={s.image} />
+      {keys.length !== 0 && (
+        <section className={s.section}>
+          {
+            <ul className={s.list}>
+              {characters.map(character => (
+                <li
+                  onClick={() => {
+                    setCharacterId(character.id);
+                  }}
+                  key={character.id}
+                  className={s.item}
+                >
+                  <div className={s.card}>
+                    <img src={character.image} alt="user" className={s.image} />
 
-                  <h1 className={s.title}>{character.name}</h1>
-                </div>
-              </li>
-            ))}
-          </ul>
-        )}
-      </section>
-      {keys.length >= 20 && (
-        <LoadButtons setNewCharacters={setNewCharacters} newPage={page} />
+                    <h1 className={s.title}>{character.name}</h1>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          }
+          {keys.length >= 20 && (
+            <LoadButtons setNewCharacters={setNewCharacters} newPage={page} />
+          )}
+          <Footer />
+        </section>
       )}
     </>
   );

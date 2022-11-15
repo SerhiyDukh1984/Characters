@@ -1,3 +1,4 @@
+import Footer from 'components/Footer/Footer';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import s from './EpisodesList.module.css';
@@ -11,22 +12,27 @@ const EpisodesList = ({ episodes }) => {
   }, [episodeId, navigate]);
 
   return (
-    <section className={s.section}>
-      <ul className={s.list}>
-        {episodes !== undefined &&
-          episodes.map(episode => (
-            <li
-              onClick={() => {
-                setEpisodeId(episode.id);
-              }}
-              key={episode.id}
-              className={s.item}
-            >
-              <h1 className={s.title}>{episode.name}</h1>
-            </li>
-          ))}
-      </ul>
-    </section>
+    <>
+      {episodes.length !== 0 && (
+        <section className={s.section}>
+          <ul className={s.list}>
+            {episodes !== undefined &&
+              episodes.map(episode => (
+                <li
+                  onClick={() => {
+                    setEpisodeId(episode.id);
+                  }}
+                  key={episode.id}
+                  className={s.item}
+                >
+                  <h1 className={s.title}>{episode.name}</h1>
+                </li>
+              ))}
+          </ul>
+          <Footer />
+        </section>
+      )}
+    </>
   );
 };
 

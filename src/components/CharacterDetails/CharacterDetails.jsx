@@ -21,7 +21,7 @@ const CharacterDetails = () => {
     <>
       <BtnGoBack id={id} />
 
-      {character && (
+      {character.name && (
         <section className={s.section}>
           <img src={character.image} alt="user" className={s.image} />
           <h1 className={s.title}>{character.name}</h1>

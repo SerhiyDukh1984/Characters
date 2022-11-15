@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import s from './ButtonGoBack.module.css';
 
-const BtnGoBack = ({ id, keys, goBack }) => {
+const BtnGoBack = ({ id, goBack }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const [nav, setNav] = useState('');
