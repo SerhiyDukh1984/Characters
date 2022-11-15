@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import s from './LocationList.module.css';
 
 const LocationList = ({ locations }) => {
-  console.log('🚀 ~ locations', locations.length);
   const navigate = useNavigate();
   const [locatione, setLocatione] = useState({});
   const [locationId, setLocationId] = useState('');
